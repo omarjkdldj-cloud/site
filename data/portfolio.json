@@ -1,0 +1,12 @@
+{
+  "sections": [
+    { "id": "visual-concepts", "label": "VISUAL CONCEPTS", "order": 1 },
+    { "id": "social-media", "label": "SOCIAL MEDIA", "order": 2 },
+    { "id": "layouts", "label": "LAYOUTS", "order": 3 },
+    { "id": "packaging", "label": "PACKAGING", "order": 4 },
+    { "id": "branding", "label": "BRANDING", "order": 5 },
+    { "id": "client-logos", "label": "CLIENTS", "order": 6 },
+    { "id": "ai-videos", "label": "AI VIDEOS & ANIMATION", "order": 7 }
+  ],
+  "items": []
+}

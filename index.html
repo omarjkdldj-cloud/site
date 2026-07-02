@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Omar Hamed Yousef — Creative Designer &amp; AI Specialist with 8+ years of experience in branding, visual design, social media, events, and AI-powered creative solutions.">
+  <meta name="keywords" content="Omar Hamed Yousef, Creative Designer, AI Specialist, Graphic Design, Branding, Visual Design, Social Media, Egypt">
+  <meta name="author" content="Omar Hamed Yousef">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Omar Hamed Yousef | Creative Designer & AI Specialist">
+  <meta property="og:description" content="8+ years crafting premium brand experiences. Specializing in visual design, branding, social media, events, and AI-powered creative solutions.">
+  <meta property="og:type" content="website">
+
+  <title>Omar Hamed Yousef | Creative Designer &amp; AI Specialist</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lightbox.css">
+</head>
+<body>
+
+  <!-- ═══════ Loading Screen ═══════ -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loader-ring"></div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <!-- ═══════ Navigation ═══════ -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Omar Hamed</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" data-nav>Home</a>
+        <a href="#about" data-nav>About</a>
+        <a href="#experience" data-nav>Experience</a>
+        <a href="#portfolio" data-nav>Portfolio</a>
+        <a href="#services" data-nav>Services</a>
+        <a href="#contact" data-nav>Contact</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════ Mobile Menu ═══════ -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#hero" data-mobile-nav>Home</a>
+    <a href="#about" data-mobile-nav>About</a>
+    <a href="#experience" data-mobile-nav>Experience</a>
+    <a href="#portfolio" data-mobile-nav>Portfolio</a>
+    <a href="#services" data-mobile-nav>Services</a>
+    <a href="#contact" data-mobile-nav>Contact</a>
+  </div>
+
+  <!-- ═══════ Hero Section ═══════ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-particles" id="hero-particles"></canvas>
+    <div class="hero-bg"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+
+    <div class="hero-split">
+      <!-- Left: Text -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available for Projects
+        </div>
+        <h1 class="hero-name">
+          Hi, I'm <span class="name-gradient">Omar Hamed</span>
+        </h1>
+        <p class="hero-title">Creative Designer &amp; AI Specialist</p>
+        <p class="hero-tagline" id="hero-tagline"></p>
+        <p class="hero-desc">
+          8+ years crafting premium brand experiences across the Middle East &amp; Europe.
+          Specializing in visual design, branding, and cutting-edge AI-powered creative solutions.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn btn-primary">
+            <i class="fas fa-th-large"></i> View My Work
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-envelope"></i> Get in Touch
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-glow"></div>
+        <div class="hero-photo">
+          <img src="assets/images/omar-profile.png" alt="Omar Hamed Yousef - Creative Designer & AI Specialist">
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════ About Section ═══════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Designing the Future, Today</h2>
+        <p class="section-subtitle">A decade of transforming brands through creative vision and emerging technology.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Left: Bio -->
+        <div class="about-text reveal-left" id="about-bio">
+          <!-- Populated by JS from profile.json -->
+        </div>
+
+        <!-- Right: Stats + Skills -->
+        <div class="about-right reveal-right">
+          <div class="stats-grid" id="stats-grid">
+            <!-- Populated by JS -->
+          </div>
+
+          <div style="margin-top: 40px;">
+            <h4 class="skills-section-title"><i class="fas fa-laptop-code" style="margin-right:8px; color:var(--accent-3);"></i>Software &amp; Tools</h4>
+            <div class="skill-chips" id="software-skills">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <h4 class="skills-section-title"><i class="fas fa-star" style="margin-right:8px; color:var(--accent-2);"></i>Core Competencies</h4>
+            <div class="skill-chips" id="core-skills">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Experience Section ═══════ -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Career Path</span>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">A journey through creative roles that shaped my expertise.</p>
+      </div>
+
+      <div class="timeline" id="experience-timeline">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="education-card reveal">
+        <div class="education-inner">
+          <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="education-info" id="education-info">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Clients Logos Marquee ═══════ -->
+  <div id="clients-marquee-container"></div>
+
+  <!-- ═══════ Portfolio Sections ═══════ -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Selected Works</h2>
+        <p class="section-subtitle">A curated showcase of projects across branding, social media, events, and AI.</p>
+      </div>
+    </div>
+
+    <!-- Sequential sections populated by JS -->
+    <div id="portfolio-sections">
+      <!-- Each section: VISUAL CONCEPTS → SOCIAL MEDIA → LAYOUTS → PACKAGING → BRANDING → AI VIDEOS & ANIMATION -->
+    </div>
+  </section>
+
+  <!-- ═══════ Thank You Section ═══════ -->
+  <section class="thank-you" id="thank-you">
+    <div class="container">
+      <div class="thank-you-content reveal">
+        <h2 class="thank-you-title">THANK YOU</h2>
+        <p class="thank-you-subtitle">Thanks for viewing my work. Let's create something amazing together.</p>
+        <div class="thank-you-social">
+          <a href="https://www.facebook.com/omar.hamed.911551" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/omar-hamed-yousef-61bb61197" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/message/CB5LCP2JNLIBE1" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <a href="#contact" class="btn btn-primary thank-you-cta">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Services Section ═══════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Services &amp; Expertise</h2>
+        <p class="section-subtitle">End-to-end creative solutions tailored to elevate your brand.</p>
+      </div>
+
+      <div class="services-grid" id="services-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Contact Section ═══════ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Have a project in mind? I'd love to hear about it.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: Info -->
+        <div class="contact-info reveal-left">
+          <h3>Let's Create Something Amazing</h3>
+          <p>Whether you need a complete brand identity, social media management, event branding, or AI-powered creative solutions — I'm here to bring your vision to life.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-detail-text">
+              <small>Email</small>
+              <a href="mailto:omarhamedaia@gmail.com">omarhamedaia@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-detail-text">
+              <small>Phone</small>
+              <a href="tel:+201114767362">011 1476 7362</a>
+              <span>&nbsp;/&nbsp;</span>
+              <a href="tel:+201553796999">015 5379 6999</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-detail-text">
+              <small>WhatsApp</small>
+              <a href="https://wa.me/message/CB5LCP2JNLIBE1" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-detail-text">
+              <small>Location</small>
+              <span>Giza, Egypt</span>
+            </div>
+          </div>
+
+          <div class="social-links" id="contact-social">
+            <a href="https://www.facebook.com/omar.hamed.911551" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/omar-hamed-yousef-61bb61197" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/message/CB5LCP2JNLIBE1" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="form-email">Your Email</label>
+                <input type="email" id="form-email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="form-subject">Subject</label>
+              <input type="text" id="form-subject" name="subject" placeholder="Project Inquiry">
+            </div>
+            <div class="form-group">
+              <label for="form-message">Message</label>
+              <textarea id="form-message" name="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <i class="fab fa-whatsapp"></i> Send via WhatsApp
+            </button>
+            <div class="form-success" id="form-success">
+              <i class="fas fa-check-circle"></i> Opening WhatsApp... Your message is ready to send!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Footer ═══════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 Omar Hamed Yousef. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/omar.hamed.911551" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/omar-hamed-yousef-61bb61197" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/message/CB5LCP2JNLIBE1" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════ Back to Top ═══════ -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ═══════ Lightbox ═══════ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content">
+      <div class="lightbox-loader" id="lightbox-loader"></div>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-info">
+      <span class="lightbox-title" id="lightbox-title"></span>
+      <span class="lightbox-counter" id="lightbox-counter"></span>
+      <p class="lightbox-desc" id="lightbox-desc"></p>
+    </div>
+  </div>
+
+  <!-- ═══════ Scripts ═══════ -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>

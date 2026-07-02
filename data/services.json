@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "fas fa-bullseye",
+    "title": "Creative Direction",
+    "description": "Leading visual strategy and brand storytelling to create cohesive, impactful brand experiences."
+  },
+  {
+    "icon": "fas fa-palette",
+    "title": "Visual Design & Branding",
+    "description": "Logo design, brand identity systems, and comprehensive visual guidelines that define your brand."
+  },
+  {
+    "icon": "fas fa-mobile-alt",
+    "title": "Social Media Design",
+    "description": "Content creation, campaign design, and full social media account management for maximum engagement."
+  },
+  {
+    "icon": "fas fa-handshake",
+    "title": "Selling Services",
+    "description": "Selling services for designers, advertising companies, and video editing."
+  },
+  {
+    "icon": "fas fa-film",
+    "title": "Video & Motion Content",
+    "description": "Promotional videos, motion graphics, reels, and dynamic visual content production."
+  },
+  {
+    "icon": "fas fa-robot",
+    "title": "AI-Powered Creation",
+    "description": "Hyper-realistic AI image/video generation, workflow automation, and cutting-edge AI integration."
+  }
+]
