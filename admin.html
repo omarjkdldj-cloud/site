@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -136,7 +136,7 @@
   <div class="bar">
     <h2><i class="fas fa-palette"></i> إدارة البورتفوليو</h2>
     <div class="bar-r">
-      <input type="password" id="ghTokenInput" placeholder="الصق GitHub Token هنا..." style="padding:6px 10px;border-radius:8px;border:1px solid #555;background:#2a2a3a;color:#fff;width:220px;font-size:12px;direction:ltr">
+      
       <button class="btn btn-s" id="publishBtn" style="background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;font-weight:bold;padding:8px 16px"><i class="fas fa-cloud-upload-alt"></i> نشر أونلاين</button>
       <a class="btn btn-o btn-s" href="/" target="_blank"><i class="fas fa-external-link-alt"></i> الموقع</a>
       <button class="btn btn-o btn-s" id="clrBtn"><i class="fas fa-broom"></i> مسح الكل</button>
@@ -769,91 +769,19 @@
   // Expose items globally for console access
   window._portfolioItems = items;
 
-  // ── Publish: update admin-data.json on GitHub → Pages auto-deploys ──
-  const GH_REPO='omarjkdldj-cloud/site';
-  const GH_API='https://api.github.com';
-  function getGHToken(){return localStorage.getItem('gh_token')||'';}
-  function setGHToken(t){localStorage.setItem('gh_token',t);}
-
+  // ── Publish: download data then run desktop script ──
   async function publishToNetlify(){
-    let token=getGHToken();
-    const inputToken=$('#ghTokenInput').value.trim();
-    if(inputToken && inputToken.startsWith('ghp_')){
-      token=inputToken;
-      setGHToken(token);
-      $('#ghTokenInput').value='';
-      $('#ghTokenInput').placeholder='✅ تم حفظ التوكن';
-    }
-    if(!token || !token.startsWith('ghp_')){
-      toast(0,'الصق GitHub Token في الخانة فوق ثم اضغط نشر');
-      $('#ghTokenInput').focus();
-      return;
-    }
-    showStatus(true,'جاري النشر على الموقع... ☁️');
-    toast(1,'جاري النشر...');
+    if(items.length===0){toast(0,'مفيش مشاريع');return;}
+    showStatus(true,'جاري تحضير الملف...');
     const data=JSON.stringify(items);
-    const headers={'Authorization':`Bearer ${token}`,'Content-Type':'application/json'};
-    const api=`${GH_API}/repos/${GH_REPO}`;
-
-    try{
-      // Step 1: Create blob
-      showStatus(true,'1/4 جاري تحضير البيانات...');
-      const blobRes=await fetch(`${api}/git/blobs`,{
-        method:'POST',headers,
-        body:JSON.stringify({content:data,encoding:'utf-8'})
-      });
-      const blobData=await blobRes.json();
-      if(!blobRes.ok) throw new Error(blobData.message||'Blob failed');
-
-      // Step 2: Get current main branch + tree
-      showStatus(true,'2/4 جاري قراءة الموقع...');
-      const refRes=await fetch(`${api}/git/ref/heads/main`,{headers});
-      const refData=await refRes.json();
-      if(!refRes.ok) throw new Error(refData.message||'Ref failed');
-      const mainSha=refData.object.sha;
-
-      const commitRes=await fetch(`${api}/git/commits/${mainSha}`,{headers});
-      const commitData=await commitRes.json();
-      const currentTree=commitData.tree.sha;
-
-      // Step 3: Create new tree
-      showStatus(true,'3/4 جاري رفع البيانات...');
-      const treeRes=await fetch(`${api}/git/trees`,{
-        method:'POST',headers,
-        body:JSON.stringify({base_tree:currentTree,tree:[{path:'data/admin-data.json',mode:'100644',type:'blob',sha:blobData.sha}]})
-      });
-      const treeData=await treeRes.json();
-      if(!treeRes.ok) throw new Error(treeData.message||'Tree failed');
-
-      // Step 4: Create commit + update branch
-      showStatus(true,'4/4 جاري تحديث الموقع...');
-      const newCommitRes=await fetch(`${api}/git/commits`,{
-        method:'POST',headers,
-        body:JSON.stringify({message:'Update portfolio',tree:treeData.sha,parents:[mainSha]})
-      });
-      const newCommitData=await newCommitRes.json();
-      if(!newCommitRes.ok) throw new Error(newCommitData.message||'Commit failed');
-
-      const updateRef=await fetch(`${api}/git/refs/heads/main`,{
-        method:'PATCH',headers,
-        body:JSON.stringify({sha:newCommitData.sha})
-      });
-      const updateData=await updateRef.json();
-      if(!updateRef.ok) throw new Error(updateData.message||'Update failed');
-
-      setCache(items);
-      showStatus(true,'✅ تم النشر! الموقع هيتحدث خلال دقيقة');
-      toast(1,'تم النشر بنجاح! 🎉');
-    }catch(e){
-      console.error('Deploy error:',e);
-      showStatus(false,'❌ فشل النشر: '+e.message);
-      if(e.message.includes('Bad credentials')){
-        localStorage.removeItem('gh_token');
-        toast(0,'التوكن منتهي — الصق توكن جديد');
-        $('#ghTokenInput').placeholder='الصق توكن جديد...';
-      }
-      toast(0,'فشل النشر ❌');
-    }
+    const blob=new Blob([data],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download='admin-data.json'; a.click();
+    URL.revokeObjectURL(url);
+    setCache(items);
+    showStatus(true,'✅ تم التحميل! دوبل كليك على ملف "نشر" على الديسكتوب');
+    toast(1,'تم! افتح ملف نشر على الديسكتوب 🎉');
   }
 
   // ── Save (in memory + IndexedDB cache) ──
